@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Setting Up Circle CI on GitHub for C++ and CMake - Guilherme Oliveira</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Guilherme Oliveira" property="og:site_name">
+  
+    <meta content="Setting Up Circle CI on GitHub for C++ and CMake" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Ever wanted to set up your own continuous integration? You can do that with GitHub and CircleCI. Check out how I did for C++ and CMake!" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/simple-ci-for-cpp/" property="og:url">
+  
+  
+    <meta content="2018-01-10T10:37:20-02:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/blog/assets/img/mistake.jpg" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="C++" property="article:tag">
+    
+    <meta content="CI" property="article:tag">
+    
+    <meta content="Programming" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="Ever wanted to set up your own continuous integration? You can do that with GitHub and CircleCI. Check out how I did for C++ and CMake!">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@guilhermepo2">
+  
+    <meta name="twitter:title" content="Setting Up Circle CI on GitHub for C++ and CMake">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/simple-ci-for-cpp/">
+  
+  
+    <meta name="twitter:description" content="Ever wanted to set up your own continuous integration? You can do that with GitHub and CircleCI. Check out how I did for C++ and CMake!">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/blog/assets/img/mistake.jpg">
+  
+
+	<meta name="description" content="Ever wanted to set up your own continuous integration? You can do that with GitHub and CircleCI. Check out how I did for C++ and CMake!">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/blog/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/blog/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/blog/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/blog/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/blog/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/blog/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/blog/"><img src="/blog/assets/img/me.jpg" alt="Guilherme Oliveira"></a>
+      </div>
+      <div class="author-name">Guilherme Oliveira</div>
+      <p>Computer Science Student, working with Automated Tests. Hobbyist Game Developer.</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        
+          <li><a href="https://twitter.com/guilhermepo2" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li class="github"><a href="http://github.com/guilhermepo2" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/guilhermepo2" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:guilherme.061@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2018 &copy; Guilherme Oliveira</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <img class="page-image" src=/blog/assets/img/mistake.jpg alt="Setting Up Circle CI on GitHub for C++ and CMake">
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Setting Up Circle CI on GitHub for C++ and CMake</h1>
+        <div class="page-date"><span>2018, Jan 10&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <p>It’s been 3 months or more since I started my internship on automated testing. I studied and learned about docker, testing libraries, automated testing (of course), continuous development and, finally, continuous integration. Knowing about all of this made me a programmer twice as better than I was. This is a lot of improvement in 3 months and some days. So I started to pick interest in testing related tasks also on my personal projects and on my most recent one I decided to set up a CI environment on GitHub.</p>
+
+<p>I had a bit of trouble configuring it at first and I couldn’t find a lot of help from the internet, I had to pick some things here and there but there wasn’t an unique resource about what I wanted to do. Well, now there is since I decided to write about it.</p>
+
+<h2 id="what-is-continuous-integration--ci">What is Continuous Integration ? (CI)</h2>
+
+<p><strong>Short Version:</strong> It is building a pipeline that will be executed in every commit at your master branch on git, this pipeline builds (usually using a container) the whole environment needed for the tests and execute all the tests you’ve coded. If all tests pass, you are happy and the changes were successful. If any test fail, you can fix it as soon as possible, this is better than finding out about bugs when you wrote 1000 lines of extra code relying on that buggy function.</p>
+
+<p><strong>Long Version:</strong> It is basically the same as the short version, but with a lot of Management stuff together. Let’s do it.</p>
+
+<p>When Software Engineering, Computer Programming and these things were new, the usual thing to do was to interview a client, gather all they would need in the project and develop it without much contact with each other, everything was well documented, signed and agreed by both parts, what could possibly go wrong?</p>
+
+<p>Except that everything goes wrong. If you have ever worked with a client in your job or as a freelancer, you know that a lot of things changes and if the final product is 50% of the intended on the beggining of the project you are lucky.</p>
+
+<p>The way to go nowadays is to use Agile methodoligies (i.e. Scrum) and deliver to the client as fast as possible, there is still the need to interview them and write down everything will be needed. But instead of developing away from the client, the system is divided in small parts, as much as possible, and each part is delivered when complete, the idea is to deliver something small every week, every 2 weeks, every month, etc…</p>
+
+<p>That’s where Continuous Integration kicks in.</p>
+
+<p>As deliveries are fast, also are development, commits and everything else basically. So you <strong>need</strong> a way to verify that every new feature won’t change what is already there. Imagine your client happy with two pieces of your product, you give to them the third piece but it breaks the other two, now you have angry clients.</p>
+
+<p>If you have good software testing, good automated testing that covers a big part of what is ready in the product, it is possible to verify if everything is working as it should be.</p>
+
+<p>Now it would be even better to automate the automated testing and do it once in a while or when something changes! Now you go back and read the short version again.</p>
+
+<h2 id="what-we-are-going-to-do">What we are going to do?</h2>
+
+<h2 id="doing-it">Doing it.</h2>
+
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Setting Up Circle CI on GitHub for C++ and CMake&url=http://localhost:4000/simple-ci-for-cpp/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/simple-ci-for-cpp/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/simple-ci-for-cpp/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/blog/tags#C++" class="tag">&#35; C++</a>
+          
+            <a href="/blog/tags#CI" class="tag">&#35; CI</a>
+          
+            <a href="/blog/tags#Programming" class="tag">&#35; Programming</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>
