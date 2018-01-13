@@ -117,13 +117,13 @@ TEST_CASE("Creating and Setting Values to a Point", "[point]") {
 
 Yay! Now we have a point class and we succesfully tested it, we can now peacefully create points whenever we want and we will trust the code works because the test said it does, now let's set up the CI!.
 
-### Setting UP the CI
+### Setting UP the CI Environment
 
 The Conitnuous Integration environment I'm going to use is the [Circle CI](https://circleci.com). I encourage you to visit their website and skim through what it does and on the documentation.
 
-When you are ready, Sign Up and just your GitHub account, it will be easier. Then go to your [GitHub](https://github.com) page and visit the [Marketplace](https://github.com/marketplace), you find *Circle CI* under the Continuous Integration category, otherwise you can just search for it. If you want the direct link [here it is](https://github.com/marketplace/circleci). "Buy" it (it's not buying since it's free).
+When you are ready, Sign Up. It is easier to use your GitHub account, but do what you like the most. Go to your [GitHub](https://github.com) page and visit the [Marketplace](https://github.com/marketplace), you will find *Circle CI* under the Continuous Integration category or you can just search for it. If you want the direct link [here it is](https://github.com/marketplace/circleci). "Buy" it (it's not buying since it's free, although it has paid options).
 
-Now on the CircleCI, Log In if you haven't already, you should be seeing your Dashboard. Add a *New Project* on the *Projects* session and choose your desired Repository, click on Setup Project. Image Below for better understanding.
+Now on the CircleCI, Log In if you haven't already, you should be seeing your Dashboard. Link it with GitHub, you haven't used your GitHub account, to have access to your repositories. Add a *New Project* on the *Projects* session and choose your desired Repository, click on Setup Project. Image Below for better understanding.
 
 ![Project on Circle CI]({{site.baseurl}}/assets/img/project-on-circle-ci.png)
 
@@ -133,21 +133,19 @@ You will read the following:
 
 It comes pretty much all set for you, we usually want to use Linux Operating System and the version 2.0 - For the language, they don't have Official C++ Support, but we can use it anyway. If you want to, you go on *Other* and submit C++ as a language request.
 
-Read carefully what Circle CI is saying to you.
+Now we have to do as Circle CI says:
 
 > Create a folder named .circleci and add a fileconfig.yml (so that the filepath be in .circleci/config.yml).
 
-Unfortunately, there isn't a sample `config.yml` file for our project settings, so I will guide through it. If you aren't very familiar with .yml files, I suggest that you [read more](http://yaml.org) about it. Also, if you aren't very familiar with docker or containers, I suggest you [to be](https://www.docker.com). *Please, consider learning more about Docker, we will be using it but we won't be using nearly 1% of its capacities, docker's main page title is: Build, Ship, and Run Any App, Anywhere - Pretty powerful, eh?*
+Unfortunately, there isn't a sample `config.yml` file for our project settings, so I will guide you through it. If you aren't very familiar with .yml files, I suggest that you [read more](http://yaml.org) about it. Also, if you aren't very familiar with docker or containers, I suggest you [to be](https://www.docker.com). *Please, consider learning more about Docker, we will be using it but we won't be using nearly 1% of its capacities, As you can read on docker's main page: Build, Ship, and Run Any App, Anywhere - Pretty powerful, eh?*
 
 #### Configuring with the config.yml file
 
-For testing in the CI, it is used docker, we are going to use *debian:stretch* docker image, which is a simple Linux Image with few functionalities, so we are going to need to install what we are effectively going to use: **sudo**, **gcc and g++** and, finally, **cmake**.
+For testing in the Circle CI, a docker container is used, we are going to use the image *debian:stretch*, which is a simple Linux Image with few functionalities, so we are going to need to install what we are effectively going to use: **sudo**, **gcc and g++** and, finally, **cmake**.
 
-Every .yml file begins with the current version, which for this case is 2.
+Every .yml file begins with the current version, which for this case is `version 2`.
 
-`version: 2`
-
-Now we need to define our jobs, a job is a task executed on the continuous integration environment. We will call our job *build* and, for this simple scenario, we are going to do pretty much everything in this job. The build job needs to have a defined docker image and its steps, our steps are:
+Now we need to define our **jobs**, a job is a task executed on the continuous integration environment. We will call our job *build* and, for this simple scenario, we are going to do pretty much everything in this job. The build job needs to have a defined docker image and its steps are:
 
 1. Installing SUDO
 2. Installing GCC and G++
@@ -155,6 +153,8 @@ Now we need to define our jobs, a job is a task executed on the continuous integ
 4. Creating the Build Files
 5. Building the Project
 6. Executing the point test
+
+**obs:** it is common to execute the unit tests on the build routine, it is common to not do it. Your project, your resources, your decision.
 
 *.yml* files are determined by 2-space indentation, so be careful when writing your own.
 
