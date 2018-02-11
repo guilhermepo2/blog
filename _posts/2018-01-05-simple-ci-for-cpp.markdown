@@ -7,27 +7,27 @@ img: mistake.jpg
 tags: [C++, CI, Programming]
 ---
 
-It’s been 3 months or more since I started my internship on automated testing. I studied and learned about docker, testing libraries, automated testing (of course), continuous development and, finally, continuous integration. Knowing about all of this made me a programmer twice as better than I was. This is a lot of improvement in 3 months and some days. So I started to pick interest in testing related tasks also on my personal projects and on my most recent one I decided to set up a CI environment on GitHub.
+It’s been 3 months or more since I started my internship on automated testing. I studied and learned about docker, testing libraries, automated testing (of course), continuous development and, finally, continuous integration. Knowing about all of this made me a programmer twice as better than I was. This is a lot of improvement for 3 months and some days. So I started picking interest in testing related tasks also on personal projects and on my most recent one I decided to set up a CI environment on GitHub.
 
 I had a bit of trouble configuring it at first and I couldn't find a lot of help from the internet, I had to pick some things here and there but there wasn't an unique resource about what I wanted to do. Well, now there is since I decided to write about it.
 
 ## What is Continuous Integration ? (CI)
 
-**Short Version:** It is building a pipeline that will be executed in every commit at your master branch on git, this pipeline builds (usually using a container) the whole environment needed for the tests and execute all the tests you've coded. If all tests pass, you are happy and the changes were successful. If any test fail, you can fix it as soon as possible, this is better than finding out about bugs when you wrote 1000 lines of extra code relying on that buggy function.
+**Short Version:** It is building a pipeline that will be executed in every commit at your most updated branch on git, this pipeline builds (usually using a container) the whole environment needed for the tests and execute all the tests you've coded. If all tests pass, you are happy and the changes were successful. If any test fail, you can fix it as soon as possible, this is better than finding out about bugs when you wrote 1000 lines of extra code relying on that buggy function.
 
-**Long Version:** It is basically the same as the short version, but with a lot of Management stuff together. Let's do it.
+**Long Version:** It is basically the same as the short version, but with a lot of Management stuff added. Let's do it.
 
 When Software Engineering, Computer Programming and these things were new, the usual thing to do was to interview a client, gather all they would need in the project and develop it without much contact with each other, everything was well documented, signed and agreed by both parts, what could possibly go wrong?
 
-Except that everything goes wrong. If you have ever worked with a client in your job or as a freelancer, you know that a lot of things changes and if the final product is 50% of the intended on the beggining of the project you are lucky.
+Except that everything always goes wrong. If you have ever worked with a client in your job or as a freelancer, you know that a lot of things changes and if the final product is 50% of the intended on the beggining of the project you are lucky.
 
-The way to go nowadays is to use Agile methodoligies (i.e. Scrum) and deliver to the client as fast as possible, there is still the need to interview them and write down everything will be needed. But instead of developing away from the client, the system is divided in small parts, as much as possible, and each part is delivered when complete, the idea is to deliver something small every week, every 2 weeks, every month, etc...
+The way to go nowadays is to use Agile methodologies (i.e. Scrum) and deliver to the client as fast as possible, there is still the need to interview them and write down everything will be needed. But instead of developing away from the client, the system is divided, as much as possible, in small parts, and each part is delivered when complete, the idea is to deliver something small every week, every 2 weeks, every month, etc...
 
 That's where Continuous Integration kicks in.
 
-As deliveries are fast, also are development, commits and everything else basically. So you **need** a way to verify that every new feature won't change what is already there. Imagine your client happy with two pieces of your product, you give to them the third piece but it breaks the other two, now you have angry clients.
+As deliveries are fast, also is development, commits and everything else basically. So you **need** a way to verify that every new feature won't change what is already there. Imagine your client is happy with two pieces of your product, you give to them the third piece but it breaks the other two, now you have angry clients.
 
-If you have good software testing, good automated testing that covers a big part of what is ready in the product, it is possible to verify if everything is working as it should be.
+If you have good software testing, good automated testing that covers a big part of what is already in the product, it is possible to verify if everything is working as it should be.
 
 Now it would be even better to automate the automated testing and do it once in a while or when something changes! Now you go back and read the short version again. 
 
@@ -41,13 +41,13 @@ Basically setting up a really simple project with C++ and CMake, write tests for
 
 1. **The C++ Code:** I will use a simple class I'm using in a current project, the *Point* class, it has two attributes, x and y, and some methods to manipulate them, that's all.
 2. CMake File.
-3. Writing Tests for the Point Function.
+3. Writing Tests for the Point Function (using Catch).
 4. Building and Running Locally the Tests.
 5. Setting Up Circle CI.
 
 ## Doing it.
 
-This is by no means a C++, CMake, Unit Testing or Catch sort of tutorial, I'm assuming that you know them or have at least some familiarity to understand the code below. Anyway, the code should be pretty straightforward for anyone with some programming background.  The code is publicly available [here](https://github.com/guilhermepo2/cpp-cmake-circle-ci)
+This is by no means a C++, CMake, Unit Testing or Catch sort of tutorial, I'm assuming that you know them or have at least some familiarity to understand the code below. Anyway, the code should be pretty straightforward for anyone with some programming background.  The code is publicly available [here](https://github.com/guilhermepo2/cpp-cmake-circle-ci).
 
 ### The C++ Code
 #### point.hpp
@@ -87,7 +87,7 @@ For testing in C++, I like the [Catch2](https://github.com/catchorg/Catch2) libr
 
 #### pointTest.cpp
 
-This is not the final version of the test file.
+*ps: This is not the final version of the test file.*
 
 ```c++
 #define CATCH_CONFIG_MAIN
@@ -115,7 +115,7 @@ TEST_CASE("Creating and Setting Values to a Point", "[point]") {
 
 ![It works!!]({{site.baseurl}}/assets/img/point-test.png)
 
-Yay! Now we have a point class and we succesfully tested it, we can now peacefully create points whenever we want and we will trust the code works because the test said it does, now let's set up the CI!.
+Yay! Now we have a point class and we have succesfully tested it, we can now peacefully create points whenever we want and we will trust the code works because the test said it does, now let's set up the CI environment!.
 
 ### Setting UP the CI Environment
 
@@ -123,7 +123,7 @@ The Conitnuous Integration environment I'm going to use is the [Circle CI](https
 
 When you are ready, Sign Up. It is easier to use your GitHub account, but do what you like the most. Go to your [GitHub](https://github.com) page and visit the [Marketplace](https://github.com/marketplace), you will find *Circle CI* under the Continuous Integration category or you can just search for it. If you want the direct link [here it is](https://github.com/marketplace/circleci). "Buy" it (it's not buying since it's free, although it has paid options).
 
-Now on the CircleCI, Log In if you haven't already, you should be seeing your Dashboard. Link it with GitHub, you haven't used your GitHub account, to have access to your repositories. Add a *New Project* on the *Projects* session and choose your desired Repository, click on Setup Project. Image Below for better understanding.
+Now on the CircleCI, Log In if you haven't already, you should be seeing your Dashboard. Link it with GitHub, if you haven't already, to have access to your repositories. Add a *New Project* on the *Projects* session and choose your desired Repository, click on Setup Project. Image Below for better understanding.
 
 ![Project on Circle CI]({{site.baseurl}}/assets/img/project-on-circle-ci.png)
 
@@ -145,7 +145,7 @@ For testing in the Circle CI, a docker container is used, we are going to use th
 
 Every .yml file begins with the current version, which for this case is `version 2`.
 
-Now we need to define our **jobs**, a job is a task executed on the continuous integration environment. We will call our job *build* and, for this simple scenario, we are going to do pretty much everything in this job. The build job needs to have a defined docker image and its steps are:
+Now we need to define our **jobs**, a job is a task executed on the continuous integration environment. We will call our job *build* and, for this simple  scenario, we are going to do everything in this job. The build job needs to have a defined docker image and its steps are:
 
 1. Installing SUDO
 2. Installing GCC and G++
@@ -156,7 +156,13 @@ Now we need to define our **jobs**, a job is a task executed on the continuous i
 
 **obs:** it is common to execute the unit tests on the build routine, it is common to not do it. Your project, your resources, your decision.
 
-*.yml* files are determined by 2-space indentation, so be careful when writing your own.
+**obs2:** *.yml* files are determined by 2-space indentation, so be careful when writing your own.
+
+- Guide through the creation of a "job"
+- Guide through the creation of docker image
+- Guide through the creation of a step
+- All steps
+- Final config.yml file
 
 #### The final config.yml file:
 ```
@@ -188,4 +194,5 @@ jobs:
           command: './bin/point_test'
 ```
 
+Everything is finally set up. Commit and Push the *config.yml* file and let's do some minor changes on our project to see if it really works.
 
