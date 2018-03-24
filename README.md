@@ -4,6 +4,7 @@ Well, this is always going to be private anyway, so I will start taking notes he
 
 # What to Write?
 - [ ] Setting Up Circle CI for C++ and CMake
+- [ ] Statistical Analysis on Sticker Album
 - [ ] Authentication with Node.JS, Passport and PostgreSQL
 - [ ] Introduction to Evolutive Algorithms, Theory and Practice
 - [ ] RESTful API with Node.JS and PostgreSQL
