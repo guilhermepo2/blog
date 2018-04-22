@@ -4,7 +4,7 @@ Well, this is always going to be private anyway, so I will start taking notes he
 
 # What to Write?
 
-# Technical
+# Tech
 - [ ] Setting Up Circle CI for C++ and CMake
 - [ ] Test Driven Development in Artificial Intelligence Algorithms (Q-Learning and Evolutive Algorithms) - Usually you are blind-exloring a search space with machine learning algorithms, so you need some ways to guarantee that you are exploring at least correctly in some known cases - Tests.
 - [ ] Authentication with Node.JS, Passport and PostgreSQL
@@ -20,6 +20,8 @@ Well, this is always going to be private anyway, so I will start taking notes he
 # Games
 - [ ] What Art type should I learn as an Indie Developmer and Game Programmer
 - [ ] Are Games Getting Easier?
+- [ ] Breath of the Wild as First Zelda Experience
+- [ ] Playing Pokemon X as someone who last Pokemon was Pokemon Gold
 - [ ] Thoughts on Hearthstone RNG
 - [ ] Games You Should Try (Actually a serie of texts)
     - [ ] Final Fantasy IX
@@ -41,9 +43,11 @@ Medias I have:
 
 Medias I would also like to have:
 1. Game related blog (merge it with personal blog?)
-2. Anonymous Blogging
+2. ~Anonymous Blogging~
 
 **Blogs:** I have or want to have a lot of fucking blogs, I have to organize it...
+
+SEO? RESULTS ON GOOGLE? THINK ABOUT IT!
 
 **Medium:** Medium is a platform to share "Ideas on subjects that matter" - so it is not a place for thoughts, maybe not for some technical aspects, but it's good for the writings like *"getting a hobby that doesn't relate to computer science"*, *"Subjects that matter"* nowadays is politics, design and technology, that's what you are going to find on Medium, and not so technical, that's the kind of stuff that should be there.
 
