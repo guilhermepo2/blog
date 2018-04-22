@@ -29,6 +29,8 @@ Well, this is always going to be private anyway, so I will start taking notes he
     - [ ] Bloodborne
     - [ ] Kingdom Hearts
 - [ ] Kira from Midnight Journey - Character Design Process
+- [ ] Is Dark Souls a Really Difficult Game?
+- [ ] Are Handhelds Dying? Why?
 
 # Where to Write?
 
