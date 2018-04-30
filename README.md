@@ -18,10 +18,14 @@ Well, this is always going to be private anyway, so I will start taking notes he
 - [ ] Get a Hobby that doesn't relate to Computer Science
 
 # Games
+
+Idea: Play a game and write one article, do it forever and ever, always be playing something and writing an article about what you learned with its Game Design.
+
 - [ ] What Art type should I learn as an Indie Developmer and Game Programmer
 - [ ] Are Games Getting Easier?
 - [ ] Breath of the Wild as First Zelda Experience
 - [ ] Playing Pokemon X as someone who last Pokemon was Pokemon Gold
+- [ ] A note on rivals/friends on Pokemon X
 - [ ] Thoughts on Hearthstone RNG
 - [ ] Games You Should Try (Actually a serie of texts)
     - [ ] Final Fantasy IX
@@ -33,6 +37,18 @@ Well, this is always going to be private anyway, so I will start taking notes he
 - [ ] Kira from Midnight Journey - Character Design Process
 - [ ] Is Dark Souls a Really Difficult Game?
 - [ ] Are Handhelds Dying? Why?
+
+# Videos?
+
+I would like to have a channel on youtube where I talk about games and/or game design, a nice idea is to have a simple idea and talk about it on a 3 to 5 minute video.
+
+1. Choose a Game/Topic
+2. Research
+3. Write a Script
+4. Gather Video Material
+5. Record Voice
+6. Edit
+7. Post it.
 
 # Where to Write?
 
