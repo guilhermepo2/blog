@@ -16,6 +16,7 @@ Well, this is always going to be private anyway, so I will start taking notes he
 - [ ] Statistical Analysis on Sticker Album
 - [ ] IDE vs Text Editor
 - [ ] Get a Hobby that doesn't relate to Computer Science
+- [ ] Do things fast and iteratively
 
 # Games
 
