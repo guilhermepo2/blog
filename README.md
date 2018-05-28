@@ -4,6 +4,8 @@ Well, this is always going to be private anyway, so I will start taking notes he
 
 # What to Write?
 
+test
+
 # Tech
 - [ ] Setting Up Circle CI for C++ and CMake
 - [ ] Test Driven Development in Artificial Intelligence Algorithms (Q-Learning and Evolutive Algorithms) - Usually you are blind-exloring a search space with machine learning algorithms, so you need some ways to guarantee that you are exploring at least correctly in some known cases - Tests.
