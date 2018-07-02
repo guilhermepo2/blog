@@ -13,23 +13,13 @@ I had a bit of trouble configuring it at first and I couldn't find a lot of help
 
 ## What is Continuous Integration ? (CI)
 
-**Short Version:** It is building a pipeline that will be executed in every commit at your most updated branch on git, this pipeline builds (usually using a container) the whole environment needed for the tests and execute all the tests you've coded. If all tests pass, you are happy and the changes were successful. If any test fail, you can fix it as soon as possible, this is better than finding out about bugs when you wrote 1000 lines of extra code relying on that buggy function.
+Keeping it simple, it is building a pipeline that will be executed in every commit at your most updated branch on git, this pipeline builds (usually using a container) the whole environment needed for the tests and execute all the tests you've coded. If all tests pass, you are happy and the changes were successful. In a real life scenario, you can ship your software after this step. If any test fail, you can fix it as soon as possible, this is better than finding out about bugs when you wrote 1000 lines of extra code relying on that buggy function.
 
-**Long Version:** It is basically the same as the short version, but with a lot of Management stuff added. Let's do it.
+There is also a Management side to it. Software Engineering used to be all about interviewing your client and then developing the software apart from your client, doesn't take much to know that everything went wrong on this model. Nowadays we use Agile methodologies (i.e. Scrum) and try to deliver to the client as fast as we can.
 
-When Software Engineering, Computer Programming and these things were new, the usual thing to do was to interview a client, gather all they would need in the project and develop it without much contact with each other, everything was well documented, signed and agreed by both parts, what could possibly go wrong?
+As deliveries are fast, so is development, commits and everything else basically. So you **need** a way to verify that every new feature won't break what is already there. Imagine your client is happy with two pieces of your product, you give to them the third piece but it breaks the other two, not good.
 
-Except that everything always goes wrong. If you have ever worked with a client in your job or as a freelancer, you know that a lot of things changes and if the final product is 50% of the intended on the beggining of the project you are lucky.
-
-The way to go nowadays is to use Agile methodologies (i.e. Scrum) and deliver to the client as fast as possible, there is still the need to interview them and write down everything will be needed. But instead of developing away from the client, the system is divided, as much as possible, in small parts, and each part is delivered when complete, the idea is to deliver something small every week, every 2 weeks, every month, etc...
-
-That's where Continuous Integration kicks in.
-
-As deliveries are fast, also is development, commits and everything else basically. So you **need** a way to verify that every new feature won't change what is already there. Imagine your client is happy with two pieces of your product, you give to them the third piece but it breaks the other two, now you have angry clients.
-
-If you have good software testing, good automated testing that covers a big part of what is already in the product, it is possible to verify if everything is working as it should be.
-
-Now it would be even better to automate the automated testing and do it once in a while or when something changes! Now you go back and read the short version again. 
+If you have good and automated software testing covering an important part of your product, you are less likely to deploy something broken to your client, which is nice.
 
 ![No More Rubber Duck Debugging!]({{site.baseurl}}/assets/img/debugging-finn.jpg)
 
@@ -119,11 +109,11 @@ Yay! Now we have a point class and we have succesfully tested it, we can now pea
 
 ### Setting UP the CI Environment
 
-The Conitnuous Integration environment I'm going to use is the [Circle CI](https://circleci.com). I encourage you to visit their website and skim through what it does and on the documentation.
+The Continuous Integration environment I'm going to use is [Circle CI](https://circleci.com). I encourage you to visit their website and skim through what it does and on the documentation.
 
 When you are ready, Sign Up. It is easier to use your GitHub account, but do what you like the most. Go to your [GitHub](https://github.com) page and visit the [Marketplace](https://github.com/marketplace), you will find *Circle CI* under the Continuous Integration category or you can just search for it. If you want the direct link [here it is](https://github.com/marketplace/circleci). "Buy" it (it's not buying since it's free, although it has paid options).
 
-Now on the CircleCI, Log In if you haven't already, you should be seeing your Dashboard. Link it with GitHub, if you haven't already, to have access to your repositories. Add a *New Project* on the *Projects* session and choose your desired Repository, click on Setup Project. Image Below for better understanding.
+Now on CircleCI, Log In if you haven't already, you should be seeing your Dashboard. Link it with GitHub, if you haven't already, to have access to your repositories. Add a *New Project* on the *Projects* session and choose your desired Repository, click on Setup Project. Image Below for better understanding.
 
 ![Project on Circle CI]({{site.baseurl}}/assets/img/project-on-circle-ci.png)
 
@@ -131,21 +121,21 @@ You will read the following:
 
 > CircleCI helps you ship better code, faster. To kick things off, you'll need to add a config.yml file to your project, and start building. After that, we'll start a new build for you each time someone pushes a new commit.
 
-It comes pretty much all set for you, we usually want to use Linux Operating System and the version 2.0 - For the language, they don't have Official C++ Support, but we can use it anyway. If you want to, you go on *Other* and submit C++ as a language request.
+It comes pretty much all set for you, we usually want to use Linux Operating System and the version 2.0. 
 
 Now we have to do as Circle CI says:
 
-> Create a folder named .circleci and add a fileconfig.yml (so that the filepath be in .circleci/config.yml).
+> Create a folder named .circleci and add a file config.yml (so that the filepath be in .circleci/config.yml).
 
-Unfortunately, there isn't a sample `config.yml` file for our project settings, so I will guide you through it. If you aren't very familiar with .yml files, I suggest that you [read more](http://yaml.org) about it. Also, if you aren't very familiar with docker or containers, I suggest you [to be](https://www.docker.com). *Please, consider learning more about Docker, we will be using it but we won't be using nearly 1% of its capacities, As you can read on docker's main page: Build, Ship, and Run Any App, Anywhere - Pretty powerful, eh?*
+Unfortunately, there isn't a sample `config.yml` file for our project settings, so I will guide you through it. If you aren't very familiar with .yml files, I suggest that you [read more](http://yaml.org) about it. Also, if you aren't very familiar with docker or containers, I suggest you [to be](https://www.docker.com). *Please, consider learning more about Docker. As you can read on docker's main page: Build, Ship, and Run Any App, Anywhere - Pretty powerful, eh?*
 
-#### Configuring with the config.yml file
+#### The config.yml file
 
 For testing in the Circle CI, a docker container is used, we are going to use the image *debian:stretch*, which is a simple Linux Image with few functionalities, so we are going to need to install what we are effectively going to use: **sudo**, **gcc and g++** and, finally, **cmake**.
 
 Every .yml file begins with the current version, which for this case is `version 2`.
 
-Now we need to define our **jobs**, a job is a task executed on the continuous integration environment. We will call our job *build* and, for this simple  scenario, we are going to do everything in this job. The build job needs to have a defined docker image and its steps are:
+We need to define our **jobs**, a job is a task executed on the continuous integration environment. We will call our job *build* and, for this simple  scenario, we are going to do everything in this job. The build job needs to have a defined docker image and its steps are:
 
 1. Installing SUDO
 2. Installing GCC and G++
@@ -154,15 +144,15 @@ Now we need to define our **jobs**, a job is a task executed on the continuous i
 5. Building the Project
 6. Executing the point test
 
-**obs:** it is common to execute the unit tests on the build routine, it is common to not do it. Your project, your resources, your decision.
+**obs:** it is common to execute unit tests on the build routine, it is common to not do it. Your project, your resources, your decision.
 
 **obs2:** *.yml* files are determined by 2-space indentation, so be careful when writing your own.
 
+**STILL BEING WRITTEN:**
 - Guide through the creation of a "job"
 - Guide through the creation of docker image
 - Guide through the creation of a step
 - All steps
-- Final config.yml file
 
 #### The final config.yml file:
 ```
