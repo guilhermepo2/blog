@@ -210,3 +210,5 @@ jobs:
 
 Everything is finally set up. Commit and Push the *config.yml* file and let's do some minor changes on our project to see if it really works.
 
+It's obvious that I got a bit lost while writing the final of this article as explaining how to config with a .yml is something a bit... I don't know. So any thing you would to ask about it just reach me on twitter or email or anywhere else.
+
