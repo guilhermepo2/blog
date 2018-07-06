@@ -7,12 +7,14 @@ Well, this is always going to be private anyway, so I will start taking notes he
 test
 
 # Tech
-- [ ] Setting Up Circle CI for C++ and CMake
+- [ ] Setting Up Circle CI for C++ and CMake.
+- [ ] Vector3D Class for C++ (Talk about Operator Overloading).
 - [ ] Test Driven Development in Artificial Intelligence Algorithms (Q-Learning and Evolutive Algorithms) - Usually you are blind-exloring a search space with machine learning algorithms, so you need some ways to guarantee that you are exploring at least correctly in some known cases - Tests.
 - [ ] Authentication with Node.JS, Passport and PostgreSQL
-- [ ] Introduction to Evolutive Algorithms, Theory and Practice
-- [ ] Unity3D and Node.JS HTTP Communication
-- [ ] RESTful API with Node.JS and PostgreSQL
+- [ ] Introduction to Evolutive Algorithms, Theory and Practice.
+- [ ] Evolutionary Algorithms with Data Oriented Programming.
+- [ ] Unity3D and Node.JS HTTP Communication.
+- [ ] RESTful API with Node.JS and PostgreSQL.
 
 # ??
 - [ ] Statistical Analysis on Sticker Album
@@ -23,6 +25,7 @@ test
 # Games
 
 Idea: Play a game and write one article, do it forever and ever, always be playing something and writing an article about what you learned with its Game Design.
+Idea 2: Character Analysis - I like characters.
 
 - [ ] What Art type should I learn as an Indie Developmer and Game Programmer
 - [ ] Are Games Getting Easier?
