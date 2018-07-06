@@ -77,8 +77,6 @@ For testing in C++, I like the [Catch2](https://github.com/catchorg/Catch2) libr
 
 #### pointTest.cpp
 
-*ps: This is not the final version of the test file.*
-
 ```c++
 #define CATCH_CONFIG_MAIN
 #include "libs/catch.hpp"
@@ -148,11 +146,37 @@ We need to define our **jobs**, a job is a task executed on the continuous integ
 
 **obs2:** *.yml* files are determined by 2-space indentation, so be careful when writing your own.
 
-**STILL BEING WRITTEN:**
-- Guide through the creation of a "job"
-- Guide through the creation of docker image
-- Guide through the creation of a step
-- All steps
+The first thing to do on a *.yml* file is to declare we have a *job*, in this case we are going to have only one job. A job requires its, well, job. Which in this case is the *build* job.
+
+```
+version: 2
+
+jobs:
+  build:
+```
+*Be careful on the identation!!!*
+
+The build job requires two things: (i) a *docker* image, and (ii) its *steps*, where the magic effectively will happen.
+
+A good docker image on this is the image *"debian:stretch"* and down here is an example with the step to install SUDO.
+
+```
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: "debian:stretch"
+    steps:
+      - checkout
+      - run:
+          name: Installing SUDO
+          command: 'apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*'
+```
+
+I could waste your time and my time here writing about each step, but I'm just going to show you the final config.yml file to build everything needed for running a C++ Project with CMAKE and run its Unit Tests.
+
+There's not much secret to it, it's all about writin the right *.yml* config.
 
 #### The final config.yml file:
 ```
