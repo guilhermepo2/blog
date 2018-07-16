@@ -4,7 +4,7 @@ title: A Better Random Alternative to Straight Random Range
 date: 2018-07-15 21:37:20 -0300
 description: Having problems with bad randomness? Check this out!
 img: dice-roll.jpg
-tags: [Gameplay Programming Unity, Game Development]
+tags: [Gameplay Programming, Unity, Game Development]
 ---
 
 First thing, I saw about this method first on this [blog post](https://newarteest.wordpress.com/2017/11/25/some-useful-scripts/) - But it talks about more things than just the randomness, so I decided to write this blog post as I was having troubles with random generated stuff.
