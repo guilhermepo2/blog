@@ -3,7 +3,7 @@ layout: post
 title: A Better Random Alternative to Straight Random Range
 date: 2018-07-15 21:37:20 -0300
 description: Having problems with bad randomness? Check this out!
-img: mistake.jpg
+img: dice-roll.jpg
 tags: [Gameplay Programming Unity, Game Development]
 ---
 
