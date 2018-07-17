@@ -1,0 +1,35 @@
+title: Guilherme Oliveira
+description: > # this means to ignore newlines until "baseurl:"
+  Guilherme Oliveira's Blog, here is where I talk about a bunch of things related to technology, games, game design, gaming, random stuff, whatever, welcome!
+permalink: ':title/'
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "http://gueepo.me" # the base hostname & protocol for your site, e.g. http://example.com
+site-twitter: guilhermepo2 #if your site has a twitter account, enter it here
+
+# Author Settings
+author: Guilherme Oliveira
+author-img: portrait.png
+about-author: Gameplay Programmer. # add description
+social-twitter: guilhermepo2 # add your Twitter handle
+# social-facebook: # add your Facebook handle
+social-github: guilhermepo2 # add your Github handle
+social-linkedin: guilhermepo2 # add your Linkedin handle
+social-email: guilherme.061@gmail.com # add your Email address
+
+# Disqus
+# discus-identifier: mr-brown # add your discus identifier
+
+# Tracker
+# analytics: # Google Analytics
+
+# Build Settings
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+
+paginate: 8
+paginate_path: "/page/:num"
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
