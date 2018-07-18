@@ -4,10 +4,8 @@ Well, this is always going to be private anyway, so I will start taking notes he
 
 # What to Write?
 
-test
-
-# Tech
-- [ ] Setting Up Circle CI for C++ and CMake.
+## Tech
+- [X] Setting Up Circle CI for C++ and CMake.
 - [ ] Vector3D Class for C++ (Talk about Operator Overloading).
 - [ ] Test Driven Development in Artificial Intelligence Algorithms (Q-Learning and Evolutive Algorithms) - Usually you are blind-exloring a search space with machine learning algorithms, so you need some ways to guarantee that you are exploring at least correctly in some known cases - Tests.
 - [ ] Authentication with Node.JS, Passport and PostgreSQL
@@ -16,13 +14,19 @@ test
 - [ ] Unity3D and Node.JS HTTP Communication.
 - [ ] RESTful API with Node.JS and PostgreSQL.
 
-# ??
+## Game Development
+- [ ] Unity: Delegates and Events
+- [ ] Unity: Simple Mobile Input System
+- [X] Unity: A Better Approach than Random Range
+- [ ] GameMaker: Character Controller
+
+## ??
 - [ ] Statistical Analysis on Sticker Album
 - [ ] IDE vs Text Editor
 - [ ] Get a Hobby that doesn't relate to Computer Science
 - [ ] Do things fast and iteratively
 
-# Games
+## Games
 
 Idea: Play a game and write one article, do it forever and ever, always be playing something and writing an article about what you learned with its Game Design.
 Idea 2: Character Analysis - I like characters.
@@ -44,48 +48,29 @@ Idea 2: Character Analysis - I like characters.
 - [ ] Is Dark Souls a Really Difficult Game?
 - [ ] Are Handhelds Dying? Why?
 
-# Videos?
+## Videos
 
-I would like to have a channel on youtube where I talk about games and/or game design, a nice idea is to have a simple idea and talk about it on a 3 to 5 minute video.
+**Youtube Idea:** Gameplay Autopsies
 
-1. Choose a Game/Topic
-2. Research
-3. Write a Script
-4. Gather Video Material
-5. Record Voice
-6. Edit
-7. Post it.
+The idea is to choose a game and talk about its gameplay in a more technical and development oriented way - talk about camera, control and character.
+
 
 # Where to Write?
 
 Medias I have:
-1. Wordpress Game Development Blog
+1. Wordpress Game Development Blog (DevLog)
 2. Personal Technical Blog
 3. Medium
 
-Medias I would also like to have:
-1. Game related blog (merge it with personal blog?)
-2. ~Anonymous Blogging~
-
-**Blogs:** I have or want to have a lot of fucking blogs, I have to organize it...
-
-SEO? RESULTS ON GOOGLE? THINK ABOUT IT!
-
 **Medium:** Medium is a platform to share "Ideas on subjects that matter" - so it is not a place for thoughts, maybe not for some technical aspects, but it's good for the writings like *"getting a hobby that doesn't relate to computer science"*, *"Subjects that matter"* nowadays is politics, design and technology, that's what you are going to find on Medium, and not so technical, that's the kind of stuff that should be there.
 
-**Wordpress GameDev Blog:** This is where I write about adventures on Game Development land, good place for the writing of character design process, what art type an Indie Game Developer should learn, monthly updates, technical stuff on games, etc... => Maybe it's just good for routine posts, more complex posts maybe should be on the personal blog.
+**Wordpress GameDev Blog:** A DevLog. Things with a certain time frame that are subject to change in a couple days, weeks or months.
 
-**Personal Blog:** This is the one I want to do to post thoughts and "tutorials", such as the Authentication with Node.JS and Postgres, Evolutive ALgorithms, Text Editor stuff, Restful API, ...
+**Personal Blog:** Tutorials and more well written posts.
 
-
-Based On: Flexible-Jekyll is a simple and clean theme for Jekyll
-
-### License
-
-GNU General Public License v3.0
+---------------
 
 
-# OLD README.md
 # Flexible-Jekyll is a simple and clean theme for Jekyll
 
 ![](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg?raw=true)
