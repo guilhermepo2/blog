@@ -29,6 +29,7 @@ Well, this is always going to be private anyway, so I will start taking notes he
 ## Games
 
 Idea: Play a game and write one article, do it forever and ever, always be playing something and writing an article about what you learned with its Game Design.
+
 Idea 2: Character Analysis - I like characters.
 
 - [ ] What Art type should I learn as an Indie Developmer and Game Programmer
