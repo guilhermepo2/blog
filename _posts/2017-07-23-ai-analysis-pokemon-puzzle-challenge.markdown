@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AI Analysis: Pokemon Puzzle Challenge
-date: 2018-07-15 21:37:20 -0300
+date: 2018-07-23 19:31:20 -0300
 description: Let's figure out this AI!
 img: pkm-puzzle.jpg
 tags: [Gameplay Programming, GameMaker Studio, Game Development, Artificial Intelligence]
