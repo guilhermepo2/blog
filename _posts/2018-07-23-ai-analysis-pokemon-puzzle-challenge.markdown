@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AI Analysis: Pokemon Puzzle Challenge
+title: AI Analysis of Pokemon Puzzle Challenge
 date: 2018-07-23 19:31:20 -0300
 description: Let's figure out this AI!
 img: pkm-puzzle.jpg
