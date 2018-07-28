@@ -4,7 +4,7 @@ title: AI Analysis of Pokemon Puzzle Challenge
 date: 2018-07-23 19:31:20 -0300
 description: Let's figure out this AI!
 img: pkm-puzzle.jpg
-tags: [Gameplay Programming, GameMaker Studio, Game Development, Artificial Intelligence]
+tags: [Gameplay Programming, GameMaker Studio, Game Development, Artificial Intelligence, AI Analysis, Pokemon Puzzle Challenge]
 ---
 
 After 3 hours trying to download OpenEmu for Mac OS (Thanks Brazilian Internet) I was finally able to play Pokemon Puzzle Challenge and try to analyze it! (Don't worry, I have a copy on my 3DS so it's totally legal!)
