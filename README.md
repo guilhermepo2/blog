@@ -1,60 +1,8 @@
 # Blog
 
-Well, this is always going to be private anyway, so I will start taking notes here, everything from the **ideas/writing** repository is now here, so I should also start to ramble here about my blog, my gamedev blog and medium
-
-# What to Write?
-
-## Tech
-- [X] Setting Up Circle CI for C++ and CMake.
-- [ ] Vector3D Class for C++ (Talk about Operator Overloading).
-- [ ] Test Driven Development in Artificial Intelligence Algorithms (Q-Learning and Evolutive Algorithms) - Usually you are blind-exloring a search space with machine learning algorithms, so you need some ways to guarantee that you are exploring at least correctly in some known cases - Tests.
-- [ ] Authentication with Node.JS, Passport and PostgreSQL
-- [ ] Introduction to Evolutive Algorithms, Theory and Practice.
-- [ ] Evolutionary Algorithms with Data Oriented Programming.
-- [ ] Unity3D and Node.JS HTTP Communication.
-- [ ] RESTful API with Node.JS and PostgreSQL.
-
-## Game Development
-- [ ] Unity: Delegates and Events
-- [ ] Unity: Simple Mobile Input System
-- [X] Unity: A Better Approach than Random Range
-- [ ] GameMaker: Character Controller
-
-## ??
-- [ ] Statistical Analysis on Sticker Album
-- [ ] IDE vs Text Editor
-- [ ] Get a Hobby that doesn't relate to Computer Science
-- [ ] Do things fast and iteratively
-
-## Games
-
-Idea: Play a game and write one article, do it forever and ever, always be playing something and writing an article about what you learned with its Game Design.
-
-Idea 2: Character Analysis - I like characters.
-
-- [ ] What Art type should I learn as an Indie Developmer and Game Programmer
-- [ ] Are Games Getting Easier?
-- [ ] Breath of the Wild as First Zelda Experience
-- [ ] Playing Pokemon X as someone who last Pokemon was Pokemon Gold
-- [ ] A note on rivals/friends on Pokemon X
-- [ ] Thoughts on Hearthstone RNG
-- [ ] Games You Should Try (Actually a serie of texts)
-    - [ ] Final Fantasy IX
-    - [ ] Portal and Portal 2
-    - [ ] Ghost Trick
-    - [ ] Ace Attorney
-    - [ ] Bloodborne
-    - [ ] Kingdom Hearts
-- [ ] Kira from Midnight Journey - Character Design Process
-- [ ] Is Dark Souls a Really Difficult Game?
-- [ ] Are Handhelds Dying? Why?
-
-## Videos
-
 **Youtube Idea:** Gameplay Autopsies
 
 The idea is to choose a game and talk about its gameplay in a more technical and development oriented way - talk about camera, control and character.
-
 
 # Where to Write?
 
