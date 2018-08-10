@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Juice in Unity \#1 - Screenshake
+title: Juice in Unity - Screenshake
 date: 2018-08-08 19:31:20 -0300
 description: Simple guide and thoughts on Screenshaking!
 img: theshake.jpg
