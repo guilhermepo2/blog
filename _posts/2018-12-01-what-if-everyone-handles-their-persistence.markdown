@@ -3,7 +3,7 @@ layout: post
 title: What if everyone handles their own persistence?
 date: 2018-12-01 09:00:00 -0200
 description: Analysing a Game under the constraint of one page!
-img: 
+img: persistent-cat.jpg
 tags: [Gameplay Programming, Game Programming, Persistence, Incremental Games]
 ---
 
