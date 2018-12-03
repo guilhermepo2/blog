@@ -7,23 +7,23 @@ img: persistent-cat.jpg
 tags: [Gameplay Programming, Game Programming, Persistence, Incremental Games]
 ---
 
-Persistence is one of those things that I never want to do and always procrastinate. Persistence is basically having data available at all times on software, to not lose your data when you turn it off, to have it back to you when you turn it on, and it is really important for games.
+Persistence is one of those things that I never want to do and always procrastinate. Persistence is basically having data available at all times on software, to not lose your data when you turn it off, to have it back to you when you turn it on and it is really important for games.
 
-Hell. I bet you would die if you lost your save state on any game. Those hundreds of hours on your favorite RPG game on Playstation or Playstation.
+Hell. I bet you would die if you lost your save state on any game. Those hundreds of hours on your favorite RPG game on Playstation (You have thought of a specific one, haven't you?).
 
 ## The Context
 
-I was (actually, still am) developing a game called Pizza Clicker. It is an idle incremental game where your goal is to have as much pizza as you can, the trick is, in order to obtain more pizza, you have to invest pizza. This leads to an endless vicious cycle of spending pizza to earn more pizza.
+I was (actually, still am) developing a game called Pizza Clicker. It is an idle incremental game where your goal is to have as much pizza as you can, but the trick is, in order to obtain more pizza, you have to invest pizza. This leads to an endless vicious cycle of spending pizza to earn more pizza.
 
 There are basically **two ways** of leveling up your pizza production efficiency: *incrementers* and *upgrades* - Incrementers gives you more pizza per second or more pizza per click, whereas upgrades make a specific incrementer more efficient.
 
-As it is a game that consist of accumulating resources, needless to say that persistence is a must on this kind of game. But what needs to be persisted? Basically, *how much* of each incrementers a player have and *what* upgrades they have. I started persisting incrementers in a way and halfway through the project I changed how I did for the upgrades. So basically I'm using different two different logics to persist! Yay! 
+As it is a game that consist of accumulating resources, needless to say that persistence is a must on this kind of game. But what needs to be persisted? Basically, *how much* of each incrementers a player have and *what* upgrades they have. I started persisting incrementers in a way and halfway through the project I changed how I did it for the upgrades. So basically I'm using different two different logics to persist! Yay! 
 
 And that's what I'm going to talk about today.
 
 ## The Centralized Way
 
-My first approach was to having everything centralized, on some kind of SaveManager. This led me to having two C# files: `SaveState.cs`, which is simply an object with every single aspect I would ever want to persist. It looks like this:
+My first approach was having everything centralized on some kind of SaveManager. This led me to having two C# files: `SaveState.cs`, which is simply an object with every single aspect I would ever want to persist. It looks like this:
 
 ```
 public class SaveState {
@@ -42,7 +42,7 @@ public class SaveState {
 }
 ```
 
-And for every variable I have another variable with a string, a persist string, and it is something like this:
+And on another file, called `SaveManager.cs`, for every variable I have another variable with a string, a persist string, and it is something like this:
 
 ```
 ...
@@ -94,7 +94,7 @@ If I ever want to add an incrementer (which **probably** will be the case in a f
 
 Needles to say steps 3 and 4 are **very** prone to error. If I mistaken something along the way the new incrementer can break, players will be upset and it will be bad. Also, if I want to add an incrementer when the game is already on production, I have to write code to migrate the save state from one way to another (i.e. recognize there is no "NewIncrementer" saved and that is because of the new version, so I have to initialize it on the save file with a 0).
 
-In other words, to keep working with this way, I would also have to work with a `MigrateSave()` function, which at the moment looks like this:
+In other words, to keep working this way, I would also have to work with a `MigrateSave()` function, which at the moment looks like this:
 
 ```
 void MigrateSave() {
@@ -108,13 +108,13 @@ I want to keep it like this.
 
 ## What If Everyone Handle their own Stuff?
 
-I needed to add another feature on Pizza Clicker, the *Upgrades*, which are similar to how the Incrementers work, but instead of adding to how much pizza you produce, they just improve a Incrementer's efficiency.
+I needed to add another feature on Pizza Clicker, the *Upgrades*, which are similar to how the Incrementers work, but instead of adding to how much pizza you produce, they just improve an Incrementer's efficiency.
 
 When I started, I was like: "Do I have to do all of that again? Create a variable for every upgrade and persist every one of them and migrate and..." - At some point I thought of doing the persistence on each individual Upgrade.
 
 When I buy an upgrade, it immediately saves its value as 1. When Initializing the game it checks its own persistenceString and check whether or not it was bought. Looks better, right?
 
-To save, I have to create just one more variable on `Incrementer.cs`, a string which will be used to persist.
+To save, I have to create just one more variable on `Upgrade.cs`, a string which will be used to persist.
 
 ```
 [Header("Persistance Settings")]
@@ -145,7 +145,7 @@ public void Apply() {
 }
 ```
 
-To summarize it quickly, the `Apply()` function is called when the incrementer is bought or when the game is initizialed and the persistString exists on the save file.
+To summarize it quickly, the `Apply()` function is called when the incrementer is bought or when the game is initialized and the persistString exists on the save file.
 
 ### What if I want to add an Upgrade?
 
