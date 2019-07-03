@@ -9,7 +9,7 @@ tags: [Game Development, Gameplay Programming, Unity, C#, State Machines]
 
 # Introduction
 
-Have you ever heard of State Machines? It is one of those weird cryptical words that appears in Computer Science, Computer Programming, Game Programming and a lot places really! When you try to research it initially you probably will find out about plenty of mathematical concepts, but none of those conjunct notation or math theory and hypothesis stuff will answer your basic question: "How do I create a state machine in my code?"
+Have you ever heard of State Machines? It is one of those weird cryptical words that appears in Computer Science, Computer Programming, Game Programming and a lot places really! When you try to research it you probably will find out about plenty of mathematical concepts, but none of those conjunct notation or math theory and hypothesis stuff will answer your basic question: "How do I create a state machine in my code?"
 
 In the long run, State Machines are really benefical for your code, have you ever stumbled upon a problem where you got yourself creating multiple booleans to keep track of what was happening? And you had to debug all those values and code that shouldn't be executed is executing and the biggest problem is that you can't guarantee stability in your code, you just know that pieces of code shouldn't be running and even though the result might work, you feel deep down that it is something built on a weak foundation.
 
@@ -19,7 +19,7 @@ This is a post mainly about Game Programming, because hey, that's my job. But St
 
 ### The Mathematical Model
 
-According to Wikipedia, a State Machine, also known as Finite-State Machine (FSM) or Finite Automaton is "a mathematical model of computation, an abstract machine that can be in exactly one of a finite number of states at any given time, it can changes from one state to another in response to some external inputs, this is called a state transition".
+According to Wikipedia, a State Machine, also known as Finite-State Machine (FSM) or Finite Automaton is "a mathematical model of computation, an abstract machine that can be in exactly one of a finite number of states at any given time, it changes from one state to another in response to some external inputs, this is called a state transition".
 
 Yikes!
 
@@ -33,7 +33,7 @@ Although Finite-State Machines and Automatas are something complex enough for yo
 
 A Finite-State Machine is a list of states, an initial state and the rules for transitions between states. That's pretty much it.
 
-Its purpose is to isolate pieces of code from one another, for example, in a simple platformer game, you have separate code for when the player is grounded and when the player is on air, these are your states: "Player Grounded" and "Player on Air", the initial state is Grounded and the rules are:
+Its purpose is to isolate pieces of code from one another, for example, in a simple platformer game, you want to have separate code for when the player is grounded and when the player is on air, these are your states: "Player Grounded" and "Player on Air", the initial state is Grounded and the rules are:
 - Grounded -> Jumping: If the player pressed to jump.
 - Jumping -> Grounded: If the player touches the ground.
 
@@ -51,7 +51,7 @@ Let's recapitulate what we actually need for having a state machine.
 
 ### Defining the States
 
-I, personally, like to do that using `enums` and I honestly believe this is the best way to go, you can use `enum` for your states and process then with a current state variable and a switch-case structure. For this example I'm going to pretend I am programming a 2D platformer with wall jump and that the jump from the wall is different from the regular jump, so this would be my states:
+I, personally, like to do that using `enums` and I honestly believe this is the best way to go, you can use `enum` for your states and process then with a current state variable and a switch-case structure. For this example I'm going to pretend I am programming a 2D platformer with wall jump and that the jump from the wall is different from the regular jump, so these would be my states:
 
 ```
 public enum EPlayerState {
@@ -80,7 +80,7 @@ void Start() {
 
 ### Defining the transtions
 
-This is where it get tricky, you need to handle every state individually and make sure that each state has a condition that will lead to another state, avoiding termination problems. To handle the states, I usually have a switch-case structure on my `Update()` method that would look like this:
+This is where it gets tricky, you need to handle every state individually and make sure that each state has a condition that will lead to another state, avoiding termination problems. To handle the states, I usually have a switch-case structure on my `Update()` method that would look like this:
 
 ```
 switch(m_currentPlayerState) {
