@@ -9,9 +9,9 @@ tags: [Game Development, Gameplay Programming, Unity, Screenshake, Juice]
 
 Some months ago I wrote about doing Screenshake in Unity, and now I'm writing about an even better way to make Screenshake in Unity! I will just repeat the beggining of the other post here now.
 
-First things first, if you don't know what is the **JUICE**, I feel sorry for you. There is a moment, in every game developer life, where they get to meet the **JUICE**. It is, for sure, a life changing moment. That being said, if you don't know what is the **JUICE** you probably have already thought: "My game is bad and I don't know why" or "My game has a fun mechanic but is bad, why?" - The answer to all your thoughts and problems probably are: **THE JUICE**!. 
+First things first, if you don't know what is the **JUICE**, I feel sorry for you. There is a moment, in every game developer's life, where they get to meet the **JUICE**. It is, for sure, a life changing moment. That being said, if you don't know what is the **JUICE** you probably have already thought: "My game is bad and I don't know why" or "My game has a fun mechanic but is bad, why?" - The answer to all your thoughts and problems probably are: **THE JUICE**!. 
 
-Watch [Juice it or Lose It](https://www.youtube.com/watch?v=Fy0aCDmgnxg) and [The Art of Screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U) and watch your games improve in 100% by just watching a couple lectures!
+Watch [Juice it or Lose It](https://www.youtube.com/watch?v=Fy0aCDmgnxg) and [The Art of Screenshake](https://www.youtube.com/watch?v=AJdEqssNZ-U) and watch your games improve in 100% just by watching a couple lectures!
 
 A new addition to these lectures is [Math for Game Programmers: Juicing your Camera with Math](https://www.youtube.com/watch?v=tu-Qe66AvtY) - which is a veeery nice talk!
 
@@ -19,7 +19,7 @@ A new addition to these lectures is [Math for Game Programmers: Juicing your Cam
 
 After months of iterating to achieve the **optimal screenshake** I reached the following formula: have a GameObject to hold _two cameras_, yes, two cameras. We don't want to shake the same camera we use to follow our player or show game events.
 
-Why not? You might ask! Well, we would need to write code to make sure the camera would effectively return to its intended position, and it's not always trivial and very error-prone, so having a second camera to mirror the intended position and add the shake to it is a better approach in my opinion.
+Why not? You might ask! Well, we would need to write extra code to make sure the camera would effectively return to its intended position, and it's not always trivial and very error-prone, so having a second camera to mirror the intended position and add the shake to it is a better approach in my opinion.
 
 **PS1:** I'm joking about it being the _optimal screenshake_ - it probably has lots of room for improvement and feel free to reach me if you have a tip for it!
 **PS2:** [You can find the code I use here](https://github.com/fourthdimensionstudio/UnityScripts/blob/master/Utilities/MonoBehaviors/CameraHolder.cs).
