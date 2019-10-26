@@ -7,7 +7,7 @@ img: stateMachineWorkflow.png
 tags: [Game Development, Gameplay Programming, Unity, C#, State Machines]
 ---
 
-# Introduction
+This blog post is my simple take on State Machines and how I usually use them in my projects, specially in games made in Unity. The image on the header is from another article on the same subject that I consider to be more complete and better explained, I highly recommend you to read the article: [State Pattern](https://gameprogrammingpatterns.com/state.html) - If you still want to read my take and how I approach it, keep reading!
 
 Have you ever heard of State Machines? It is one of those weird cryptical words that appears in Computer Science, Computer Programming, Game Programming and a lot places really! When you try to research it you probably will find out about plenty of mathematical concepts, but none of those conjunct notation or math theory and hypothesis stuff will answer your basic question: "How do I create a state machine in my code?"
 
