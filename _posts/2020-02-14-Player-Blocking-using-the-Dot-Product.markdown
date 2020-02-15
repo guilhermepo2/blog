@@ -16,9 +16,11 @@ This is a not blog post about what is the dot product, you can do a quick google
 
 ## The Problem
 
+![Dot Product]({{site.baseurl}}/assets/img/dot_product_yhis.png)
+
 ## The Implementation
 
-![No More Rubber Duck Debugging!]({{site.baseurl}}/assets/img/blueprint_dot_shield.jpg)
+![Implementation]({{site.baseurl}}/assets/img/blueprint_dot_shield.jpg)
 
 
 
