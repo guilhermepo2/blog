@@ -18,9 +18,21 @@ This is a not blog post about what is the dot product, you can do a quick google
 
 ![Dot Product]({{site.baseurl}}/assets/img/dot_product_yhis.png)
 
+Suppose that we have enemies that shoot projectiles against our player, but to defend against them, we want our player to have a shield that they can raise to defend against projectiles. When the player is blocking, how do you know if the shield is in between the player and the projectile? i.e. How do you know the player is actually blocking?
+
+**Why you don't...** Just check if the projectile hit the shield? - Well, usually we don't really want the shield to have collision, because we don't want it to collide with the environment or other objects. In other scenario, maybe the shield collision is a little bit off, so it can come off as unfair to the player or maybe it feel like the player wasn't really blocking.
+
+**Solving the problem in theory:** In theory, you just have to check for the projectile velocity against the player forward vector - the projectile velocity will tell you the direction the projectile is going towards, and the player's forward will tell us which direction the player is facing. The ideal situation will give us **-1** as a result, which means the player is looking directly to the projectile, and, when the shield is raised, the player will block it.
+
 ## The Implementation
 
 ![Implementation]({{site.baseurl}}/assets/img/blueprint_dot_shield.jpg)
+
+The first thing to check on the implementation, is whether the player is really blocking, this boolean variable is toggled via the Block input, which is activated by the player. Following that, we compare take the dot product of the projectile's normalized velocity and the player forward, and check if it's between **-1.0** and **-0.8**, if positive, the projectile was blocked, if negative, the player still takes damage.
+
+**Why normalize the velocity?** - When calculating the dot product of two normalized vectors (the forward is already normalized), you guarantee the result will be between **-1.0f** and **1.0**, so it's easier to understand what the result mean, in case of not normalized vectors, you can obtain 300 as a possible outcome, and we wouldn't really know what that means.
+
+**Why check if the value is between -1.0 and -0.8?** - The player will rarely be looking at the exact opposite direction as the projectile, the enemy can shoot from weird angles and the player can rotate to weird angles, in most cases when the player is looking directly at the enemy, the result will be around **-0.95** - We add some margin to that value, so the players can have a little bit of an advantage when blocking.
 
 
 
