@@ -3,9 +3,11 @@ layout: post
 title: Setting up Libtcod on Visual Studio 2019
 date: 2020-03-15 09:00:00 -0200
 description: Quick blog post about setting up Libtcod on Visual Studio 2019, so you can make your own roguelike!
-img: blueprint_dot_shield.jpg
+img: roguelike-thumbnail.png
 tags: [Game Development, Gameplay Programming, C++, Roguelike, Libtcod, Visual Studio]
 ---
+
+Image credits goes to Josh Ge's post ["How to Make a Roguelike"](https://www.gamasutra.com/blogs/JoshGe/20181029/329512/How_to_Make_a_Roguelike.php).
 
 ## Introduction
 
