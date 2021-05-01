@@ -7,9 +7,13 @@ img: opengl_spritesheets.png
 tags: [game development, opengl, tilesheet, spritesheet, texture atlas, game engine programming, C++]
 ---
 
-Probably one of the more classicals problems when doing a 2D game, or a 2D game engine, is "How to make a sprite sheet?". A sprite sheet, or a tile sheet, or a texture atlas, or whatever fancy name kids nowadays use, is basically a texture where you are interested in some parts of it, you don't want to present the texture in its entirety, just a little piece of it. There are performance concerns behind it, of course, creating and binding textures is expensive, but there is also a productivity aspect to it, working on a tilesheet that is just one file is easier than working on 30 different files, but that's not the topic of today.
+Probably one of the classicals problems you will face when doing a 2D game, or a 2D game engine, is: "How to make a sprite sheet?". 
 
-Image credits goes to ["Kenney"](https://www.kenney.nl), whose assets I've been using to test and implement this feature.
+A sprite sheet, or a tile sheet, or a texture atlas, or whatever fancy name kids nowadays use, is basically a texture where you are interested in rendering just some parts of it, you don't want to present the texture in its entirety, just a little piece of it. There are performance motivation behind it, of course, creating and binding textures is expensive, so reusing a texture is a good thing, but there is also a productivity aspect to it, working on a tilesheet that is just one file is easier than working on 30 different files, but that's not today's topic.
+
+Image credits goes to [Kenney](https://www.kenney.nl), whose assets I've been using to test and implement this feature (and all other features).
+
+Now brace yourselves because we will be looking at a lot of **code**.
 
 ## Where do we start?
 
@@ -26,7 +30,7 @@ float vertices[] = {
 }
 ```
 
-And then you will bind all of these things like so...
+And then you will bind the array like...
 ```
 glGenBuffers(1, &m_VertexBufferID);
 glBindBuffer(GL_ARRAY_BUFFER, m_VertexBufferID);
@@ -65,7 +69,7 @@ float NewTexCoords[] = {
 };
 ```
 
-And then, boom! You have your new texture coordinates! But as you might see there is still one problems to solve, or one questions to ask, if you may wish to frame it like that. **How will I dynamically set the texture coordinates?!** - That's where I got lost for a good amount of hours.
+And then, boom! You have your new texture coordinates! But as you might see there is still one problem to solve, or one question to ask, if you may wish to frame it like that. **How will I dynamically set the texture coordinates?!** - That's where I got lost for a good time.
 
 And the solution is simple, really, and it is comprised of two steps.
 
@@ -109,13 +113,24 @@ glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBufferID);
 glBufferData(GL_ELEMENT_ARRAY_BUFFER, _numIndices * sizeof(unsigned int), _indices, GL_STATIC_DRAW);
 ```
 
-It's worth noting that the shader texture didn't change at all!
+It's worth noting that the vertex shader didn't change at all!
 
 Now, it's time for the grande finale! With these data properly separated, all you have to do is change the data on the texture coordinates buffer!
 
-**Should I use glBufferData again?!** No! Let's take a peek at *documentation*, shall we? [glBufferData](https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml) tells us the following: `While creating the new storage, any pre-existing data store is deleted. The new data store is created with the specified size in bytes and usage. If data is not NULL, the data store is initialized with data from this pointer.` - Creating a new storage? deleting pre-existing data store? Sounds like a bit too much when we just want to move some floats around, right?
+**Should I use glBufferData again?!** No! Let's take a peek at *documentation*, shall we? [glBufferData](https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferData.xhtml) tells us the following: 
+```
+While creating the new storage, any pre-existing data store is deleted. The new data store is created with the specified size in bytes and usage. If data is not NULL, the data store is initialized with data from this pointer.
+```
 
-That's where [glBufferSubData](https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferSubData.xhtml) kicks in, and its documentation tell us: `When replacing the entire data store, consider using glBufferSubData rather than completely recreating the data store with glBufferData. This avoids the cost of reallocating the data store.` - Avoiding the cost of reallocating data? That sounds like something we want to do!
+Creating a new storage? deleting pre-existing data store? Sounds like a bit too much when we just want to move some floats around, right?
+
+That's where [glBufferSubData](https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBufferSubData.xhtml) kicks in, and its documentation tell us: 
+
+```
+When replacing the entire data store, consider using glBufferSubData rather than completely recreating the data store with glBufferData. This avoids the cost of reallocating the data store.
+```
+
+Avoiding the cost of reallocating data? That sounds like something we want to do!
 
 So changing the data on our Texture Coordinates buffer is as simple as:
 
@@ -128,4 +143,4 @@ And with that I was finally able to get an individual sprite on a spritesheet, a
 
 ![Tilemap Example]({{site.baseurl}}/assets/img/opengl_spritesheet_1.png)
 
-If you are feeling venturous enough, you can reach me on [Twitter](http://twitter.com/guilhermepo2) or check my [website](http://gueepo.me/)!
+If you have read so far into this, thank you! I lost a good amount of time wrapping my head around this issue and had trouble figuring out the step of dynamically setting *just* the texture coordinates. If you are feeling venturous enough, you want to give feedback, you can reach me on [Twitter](http://twitter.com/guilhermepo2) or check my [website](http://gueepo.me/)!
