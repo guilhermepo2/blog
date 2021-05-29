@@ -1,6 +1,6 @@
 title: Guilherme de Oliveira
 description: > # this means to ignore newlines until "baseurl:"
-  Guilherme de Oliveira's Blog, here is where I talk about things related to games, game programming, and more!
+  My Blog, here is where I talk about things related to games, game programming, and more!
 permalink: ':title/'
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "http://gueepo.me" # the base hostname & protocol for your site, e.g. http://example.com
@@ -8,12 +8,12 @@ site-twitter: guilhermepo2 #if your site has a twitter account, enter it here
 
 # Author Settings
 author: Guilherme de Oliveira
-author-img: portrait.jpg
-about-author: Gameplay Programmer # add description
+author-img: me3-3.png
+# about-author: Gameplay Programmer # add description
 social-twitter: guilhermepo2 # add your Twitter handle
 social-github: guilhermepo2 # add your Github handle
-social-linkedin: guilhermepo2 # add your Linkedin handle
-social-email: guilherme.061@gmail.com # add your Email address
+# social-linkedin: guilhermepo2 # add your Linkedin handle
+# social-email: guilherme.061@gmail.com # add your Email address
 
 # Disqus
 # discus-identifier: mr-brown # add your discus identifier
