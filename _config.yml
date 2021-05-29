@@ -9,7 +9,7 @@ site-twitter: guilhermepo2 #if your site has a twitter account, enter it here
 # Author Settings
 author: Guilherme de Oliveira
 author-img: me3-3.png
-# about-author: Gameplay Programmer # add description
+about-author: I write very occasional posts about game programming or related subjects # add description
 social-twitter: guilhermepo2 # add your Twitter handle
 social-github: guilhermepo2 # add your Github handle
 # social-linkedin: guilhermepo2 # add your Linkedin handle
